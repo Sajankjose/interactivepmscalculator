@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Performance Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Investment Performance Calculator</h1>
+        
+        <!-- Investment Input Form -->
+        <div class="form-group">
+            <label for="investment">Initial Investment (₹):</label>
+            <input type="text" id="investment" value="5000000" onblur="formatInvestment()">
+        </div>
+
+        <div class="form-group">
+            <label>Fixed Fee (%):</label>
+            <div>
+                <label><input type="radio" name="fixedFee" value="1" checked> 1% Fixed + 20% over 10%</label>
+                <label><input type="radio" name="fixedFee" value="2"> 2% Fixed + 20% over 15%</label>
+                <label><input type="radio" name="fixedFee" value="3"> 3% Fixed</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="otherExpenses">Other Expenses (%):</label>
+            <select id="otherExpenses">
+                <option value="0.1">0.10%</option>
+                <option value="0.2">0.20%</option>
+                <option value="0.3">0.30%</option>
+                <option value="0.4">0.40%</option>
+                <option value="0.5" selected>0.50%</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="period">Period of Investment (Years):</label>
+            <input type="number" id="period" value="6" min="1" max="6" onchange="updateSliders()">
+        </div>
+
+        <!-- Slider Section for Expected Returns -->
+        <div id="sliderContainer"></div>
+
+        <button onclick="calculateResults()">Calculate</button>
+
+        <!-- Result Section -->
+        <div id="result"></div>
+
+        <!-- Chart Section -->
+        <div class="chart-container">
+            <canvas id="investmentChart" width="400" height="200"></canvas>
+        </div>
+    </div>
+
+    <!-- Include Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Include JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
